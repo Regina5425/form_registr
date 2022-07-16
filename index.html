@@ -18,10 +18,39 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-		<link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-		
-		<script src="js/index.js"></script>
-	</body>
+    <div class="container">
+      <form action="#" class="form">
+        <h2 class="form__title">Registration form</h2>
+        <div class="form__block">
+          <label for="username" class="form__descr">Full name</label>
+          <input type="text" class="form__input" name="username" id="username" />
+        </div>
+				<div class="form__block">
+					<label for="email" class="form__descr">E-mail</label>
+					<input type="email" class="form__input" name="email" id="email">
+				</div>
+				<div class="form__block">
+					<label for="login" class="form__descr">Login</label>
+					<input type="text" class="form__input" name="login" id="login">
+				</div>
+				<div class="form__block">
+					<label for="password" class="form__descr">Password</label>
+					<input type="password" class="form__input" name="password" id="password">
+				</div>
+				<div class="form__block">
+					<label for="conf-password" class="form__descr">Confirm password</label>
+					<input type="password" class="form__input" name="password" id="conf-password">
+				</div>
+				<div class="form__block">
+					<label for="phone" class="form__descr">Phone</label>
+					<input type="tel" class="form__input" name="phone" id="phone">
+				</div>
+				<button type="submit" class="form__btn btn-reset">Sign up</button>
+      </form>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
 </html>

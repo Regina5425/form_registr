@@ -1,3 +1,12 @@
+:root {
+	--color-light: #f5f5f5;
+	--color-white: #fff;
+	--color-input: rgba(255, 255, 255, 0.3);
+	--color-focus: rgba(255, 255, 255, 0.6);
+	--color-btn: #784BA0;
+	--color-btn-hover: #7937b4;
+}
+
 /*=====global settings=======*/
 html {
 	box-sizing: border-box;
@@ -12,9 +21,11 @@ html {
 
 body {
 	min-height: 100vh;
-	margin: 0;
+	margin-top: 60px;
+	margin-bottom: 100px;
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
+	color: var(--color-light);
 }
 
 h1,
@@ -48,4 +59,84 @@ img {
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: cover;
+}
+
+.btn-reset {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.form {
+	max-width: 450px;
+	padding: 20px;
+	margin: 0 auto;
+	border-radius: 5px;
+	background-color: #FF3CAC;
+	background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+}
+
+.form__title {
+	margin-bottom: 20px;
+	font-weight: 700;
+	font-size: 22px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.form__block {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.form__descr {
+	display: block;
+	margin-bottom: 15px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.2;
+}
+
+.form__input {
+	display: block;
+	padding: 10px 15px;
+	font-size: 18px;
+	border: none;
+	border-radius: 20px;
+	background-color: var(--color-input);
+	color: var(--color-white);
+	transition: background-color 0.2s ease-in-out, outline 0.2s ease-in-out;
+}
+
+.form__input:focus {
+	background-color: var(--color-focus);
+	outline: 2px solid var(--color-light);
+}
+
+.form__btn {
+	display: block;
+	width: 100%;
+	margin-top: 30px;
+	padding: 10px 15px;
+	font-size: 18px;
+	border-radius: 20px;
+	background-color: var(--color-btn);
+	color: var(--color-light);
+	transition: background-color 0.2s ease-in-out, outline 0.2s ease-in-out;
+}
+
+.form__btn:hover {
+	background-color: var(--color-btn-hover);
+}
+
+.form__btn:focus {
+	outline: 2px solid var(--color-light);
 }
