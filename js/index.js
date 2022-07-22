@@ -1,13 +1,15 @@
-const button = document.querySelector('.form__btn');
+const form = document.querySelector('.form');
+const err = document.querySelectorAll('.form__error');
 
-button.addEventListener('click', () => {
+form.addEventListener('submit', (event) => {
+	event.preventDefault();
+
 	const userName = document.querySelector('#username'),
 		email = document.querySelector('#email'),
 		login = document.querySelector('#login'),
 		password = document.querySelector('#password'),
 		confirmPassword = document.querySelector('#conf-password'),
-		phone = document.querySelector('#phone'),
-		err = document.querySelectorAll('.form__error');
+		phone = document.querySelector('#phone');
 
 		err.textContent = '';
 
