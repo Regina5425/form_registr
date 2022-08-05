@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,58 +20,86 @@
     />
     <link rel="stylesheet" href="style/style.css" />
   </head>
+
   <body>
     <div class="container">
-      <form class="form">
-        <h2 class="form__title">Registration form</h2>
+      <form class="form" novalidate>
+        <h2 class="form__title">Форма регистрации</h2>
         <div class="form__block">
-          <label for="username" class="form__descr">Full name</label>
+          <label for="username" class="form__descr">Ваше полное имя</label>
           <input
             type="text"
             class="form__input"
             name="username"
             id="username"
+            placeholder="ФИО"
+            required
           />
-					<div class="form__error"></div>
         </div>
         <div class="form__block">
-          <label for="email" class="form__descr">E-mail</label>
-          <input type="email" class="form__input" name="email" id="email" />
-					<div class="form__error"></div>
+          <label for="email" class="form__descr">Ваш e-mail</label>
+          <input
+            type="email"
+            class="form__input"
+            name="email"
+            id="email"
+            placeholder="email"
+            required
+          />
         </div>
         <div class="form__block">
-          <label for="login" class="form__descr">Login</label>
-          <input type="text" class="form__input" name="login" id="login" />
-					<div class="form__error"></div>
+          <label for="login" class="form__descr">Ваш логин</label>
+          <input
+            type="text"
+            class="form__input"
+            name="login"
+            id="login"
+            placeholder="логин"
+            required
+          />
         </div>
         <div class="form__block">
-          <label for="password" class="form__descr">Password</label>
+          <label for="password" class="form__descr">Придумайте пароль</label>
           <input
             type="password"
             class="form__input"
             name="password"
             id="password"
+            minlength="8"
+            placeholder="пароль"
+            required
           />
-					<div class="form__error"></div>
         </div>
         <div class="form__block">
           <label for="conf-password" class="form__descr"
-            >Confirm password</label
+            >Подтвердите пароль</label
           >
           <input
             type="password"
             class="form__input"
             name="conf-password"
             id="conf-password"
+            placeholder="подтвердите пароль"
+            minlength="8"
+            required
           />
-					<div class="form__error"></div>
         </div>
         <div class="form__block">
-          <label for="phone" class="form__descr">Phone</label>
-          <input type="tel" class="form__input" name="phone" id="phone" />
-					<div class="form__error"></div>
+          <label for="phone" class="form__descr">Телефон</label>
+          <input
+            type="tel"
+            class="form__input"
+            name="phone"
+            id="phone"
+            placeholder="+7(XXX)XXX-XX-XX"
+            pattern="^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$"
+            required
+          />
         </div>
-        <button type="submit" class="form__btn btn-reset">Sign up</button>
+        <div class="form__error"></div>
+        <button type="submit" class="form__btn btn-reset">
+          Зарегистрироваться
+        </button>
       </form>
     </div>
     <script src="js/index.js"></script>

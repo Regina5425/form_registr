@@ -1,31 +1,39 @@
 const form = document.querySelector('.form');
-const err = document.querySelectorAll('.form__error');
+let errors = [];
 
+//функция проверка одного инпута
+function checkValidity(input) {
+
+	if (input.validity.valueMissing) {
+		errors.push(`Поле ${input.placeholder} не заполнено`);
+	}
+
+	if (input.validity.patternMismatch) {
+		errors.push('Неверный формат заполнения');
+	}
+
+	if (input.validity.typeMismatch) {
+		errors.push('Неверный формат заполнения');
+	}
+
+	if (input.validity.tooShort) {
+		errors.push('Неверный пароль. Пароль должен содержат больше 8 символов');
+	}
+}
+
+// проверка всех инпутов и отправка формы
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
 
-	const userName = document.querySelector('#username'),
-		email = document.querySelector('#email'),
-		login = document.querySelector('#login'),
-		password = document.querySelector('#password'),
-		confirmPassword = document.querySelector('#conf-password'),
-		phone = document.querySelector('#phone');
+	errors = [];
 
-		err.textContent = '';
+	const inputs = document.querySelectorAll('.form__input'); //находим все инпуты
 
-	if (userName.value == '') {
-		err[0].textContent = 'Please write your full name';
-	} else if (email.value == '') {
-		err[1].textContent = 'Please write your e-mail';
-	} else if (login.value == '') {
-		err[2].textContent = 'Please write your login';
-	} else if (password.value == '' || password.value.length < 8 || password.value.length >= 13) {
-		err[3].textContent = 'Incorrect password! Password should be 7-12 symbols';
-	} else if (confirmPassword.value !== password.value) {
-		err[4].textContent = 'Password doesn\'t match';
-	} else if (phone.value == '') {
-		err[5].textContent = 'Please write correct phone number';
-	} else {
-		alert(`Welcome to our website, ${userName.value}!`);
+	// на каждый инпут проходимся циклом, проверяем на валидность
+	for (let input of inputs) {
+		checkValidity(input);
 	}
+
+	let err = document.querySelector('.form__error');
+	err.innerHTML = errors.join(' <br>');
 });
