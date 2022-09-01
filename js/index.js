@@ -36,4 +36,32 @@ form.addEventListener('submit', (event) => {
 
 	let err = document.querySelector('.form__error');
 	err.innerHTML = errors.join(' <br>');
+
+	// отправка формы
+	const name = document.querySelector('#username').value,
+		email = document.querySelector('#email').value,
+		login = document.querySelector('#login').value,
+		password = document.querySelector('#password').value,
+		confirmedPassword = document.querySelector('#conf-password').value,
+		phone = document.querySelector('#phone').value;
+
+	const userData = {
+		name,
+		email,
+		login,
+		password,
+		confirmedPassword,
+		phone
+	};
+
+	fetch('https://httpbin.org/post', {
+			method: 'POST',
+			headers: {
+				'Content-type': 'applciation/json; charset=utf-8'
+			},
+			body: JSON.stringify(userData)
+		})
+		.then(response => response.json())
+		.then(data => console.log(data))
+		.catch(error => console.log(error));
 });
