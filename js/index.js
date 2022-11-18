@@ -1,7 +1,6 @@
 const form = document.querySelector('.form');
 let errors = [];
 
-//функция проверка одного инпута
 function checkValidity(input) {
 
 	if (input.validity.valueMissing) {
@@ -21,15 +20,13 @@ function checkValidity(input) {
 	}
 }
 
-// проверка всех инпутов и отправка формы
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
 
 	errors = [];
 
-	const inputs = document.querySelectorAll('.form__input'); //находим все инпуты
+	const inputs = document.querySelectorAll('.form__input');
 
-	// на каждый инпут проходимся циклом, проверяем на валидность
 	for (let input of inputs) {
 		checkValidity(input);
 	}
@@ -37,7 +34,6 @@ form.addEventListener('submit', (event) => {
 	let err = document.querySelector('.form__error');
 	err.innerHTML = errors.join(' <br>');
 
-	// отправка формы
 	const name = document.querySelector('#username').value,
 		email = document.querySelector('#email').value,
 		login = document.querySelector('#login').value,
